@@ -1,9 +1,10 @@
 import { knex as stupKnext, Knex } from 'knex'
+import 'dotenv/config'
 
 export const config: Knex.Config = {
   client: 'sqlite3',
   connection: {
-    filename: './db/app.db',
+    filename: process.env.DATABASE_URL || '',
   },
   migrations: {
     extension: 'ts',
